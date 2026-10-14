@@ -31,6 +31,6 @@ Desenvolver uma página web simples, acessível e responsiva voltada para a comu
 - [x] Implementar a função para **contar e exibir** em tempo real o número total de participantes cadastrados na página.
 
 ### Fase 4: Ajustes Finais e Testes
-- [ ] Realizar testes de responsividade em diferentes tamanhos de tela.
-- [ ] Verificar a acessibilidade (uso de tags adequadas e atributos `aria` se necessário).
+- [x] Realizar testes de responsividade em 320, 360, 390, 420, 700, 768, 1024 e 1440 px; não foi encontrada rolagem horizontal.
+- [x] Verificar a acessibilidade: estrutura semântica, hierarquia de títulos, nomes de links, associação dos rótulos aos campos, estados anunciados e contraste do placeholder do formulário.
 - [ ] Preparar instruções para publicação do site.

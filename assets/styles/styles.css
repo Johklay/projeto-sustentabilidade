@@ -495,7 +495,7 @@ h1 span,
 }
 
 .participation-form input::placeholder {
-  color: #738077;
+  color: var(--color-muted);
 }
 
 .form-button {
