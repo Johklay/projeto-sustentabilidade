@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Descubra atitudes simples para cuidar do meio ambiente e participe de uma comunidade mais sustentável."
+    >
+    <meta name="theme-color" content="#f4f7ef">
+    <title>Sustenta Local | Pequenas atitudes, grandes mudanças</title>
+    <link rel="stylesheet" href="assets/styles/styles.css">
+    <script type="module" src="assets/js/script.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <header class="site-header">
+      <div class="container header-content">
+        <a class="brand" href="#inicio" aria-label="Sustenta Local, início">
+          <span class="brand-mark" aria-hidden="true">S</span>
+          <span>Sustenta<span class="brand-accent">Local</span></span>
+        </a>
+
+        <nav class="main-nav" aria-label="Navegação principal">
+          <a href="#sobre">Sobre</a>
+          <a href="#dicas">Dicas</a>
+          <a class="nav-cta" href="#participar">Participe</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="conteudo">
+      <section class="hero" id="inicio" aria-labelledby="hero-title">
+        <div class="container hero-content">
+          <div class="hero-copy">
+            <p class="eyebrow"><span aria-hidden="true">●</span> Nosso lugar, nosso futuro</p>
+            <h1 id="hero-title">Pequenas atitudes.<br><span>Grandes mudanças.</span></h1>
+            <p class="hero-description">
+              Um bairro mais sustentável começa com escolhas simples no dia a dia.
+              Vamos cuidar do lugar onde vivemos, juntos?
+            </p>
+            <a class="button button-primary" href="#dicas">Comece por aqui <span aria-hidden="true">↓</span></a>
+          </div>
+          <div class="hero-illustration" aria-hidden="true">
+            <div class="sun"></div>
+            <div class="hill hill-back"></div>
+            <div class="hill hill-front"></div>
+            <div class="plant plant-one"><span></span><span></span><span></span></div>
+            <div class="plant plant-two"><span></span><span></span></div>
+            <div class="illustration-label">Cuidar da natureza<br>é cuidar da gente.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section about-section" id="sobre" aria-labelledby="about-title">
+        <div class="container about-content">
+          <div class="section-heading">
+            <p class="eyebrow">A mudança começa perto</p>
+            <h2 id="about-title">Sustentabilidade se faz <span>em comunidade.</span></h2>
+          </div>
+          <div class="about-copy">
+            <p>
+              O Sustenta Local é um convite para transformar bons hábitos em
+              cuidado coletivo. Com informação e atitudes acessíveis, cada pessoa
+              pode contribuir para uma comunidade mais limpa, consciente e acolhedora.
+            </p>
+            <a class="text-link" href="#participar">Faça parte dessa iniciativa <span aria-hidden="true">→</span></a>
+            <p class="participant-counter">
+              <strong id="participantes-count" aria-live="polite">—</strong>
+              <span>pessoas já fazem parte</span>
+            </p>
+            <p class="counter-feedback" id="counter-feedback" role="status">Carregando participantes…</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section tips-section" id="dicas" aria-labelledby="tips-title">
+        <div class="container">
+          <div class="section-heading tips-heading">
+            <p class="eyebrow">Ideias para colocar em prática</p>
+            <h2 id="tips-title">Hábitos simples, <span>impacto real.</span></h2>
+            <p>Escolha uma atitude para começar hoje. O importante é dar o primeiro passo.</p>
+          </div>
+
+          <div class="tips-grid">
+            <article class="tip-card">
+              <span class="tip-icon icon-recycle" aria-hidden="true">↻</span>
+              <p class="tip-number">01 / RESÍDUOS</p>
+              <h3>Separe para reciclar</h3>
+              <p>Separe papel, plástico, vidro e metal. Descarte recicláveis limpos e secos nos pontos de coleta da sua região.</p>
+            </article>
+            <article class="tip-card">
+              <span class="tip-icon icon-water" aria-hidden="true">⌁</span>
+              <p class="tip-number">02 / ÁGUA E ENERGIA</p>
+              <h3>Use só o necessário</h3>
+              <p>Feche a torneira ao escovar os dentes e apague as luzes ao sair. Pequenas economias fazem diferença.</p>
+            </article>
+            <article class="tip-card">
+              <span class="tip-icon icon-consumption" aria-hidden="true">✳</span>
+              <p class="tip-number">03 / CONSUMO</p>
+              <h3>Escolha com consciência</h3>
+              <p>Planeje as compras, prefira produtos duráveis e aproveite os alimentos para evitar desperdício.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section participation-section" id="participar" aria-labelledby="participation-title">
+        <div class="container participation-content">
+          <div class="participation-copy">
+            <p class="eyebrow">Todo mundo pode fazer parte</p>
+            <h2 id="participation-title">Vamos cuidar do nosso <span>cantinho?</span></h2>
+            <p>
+              Deixe seu nome e venha somar forças por uma comunidade mais sustentável.
+              Sua participação começa com esse pequeno gesto.
+            </p>
+          </div>
+
+          <form class="participation-form" id="form-participacao">
+            <label for="nome">Seu nome</label>
+            <input
+              id="nome"
+              name="nome"
+              type="text"
+              autocomplete="name"
+              placeholder="Como podemos te chamar?"
+              maxlength="100"
+              required
+            >
+
+            <label for="email">E-mail <span>(opcional)</span></label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              placeholder="voce@exemplo.com"
+              maxlength="254"
+            >
+
+            <button class="button button-primary form-button" type="submit">Quero participar <span aria-hidden="true">→</span></button>
+            <p class="form-note">Seu nome será registrado para contabilizar a participação. O e-mail opcional não será armazenado.</p>
+            <p class="form-feedback" id="form-feedback" role="status" hidden></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-content">
+        <a class="brand footer-brand" href="#inicio">
+          <span class="brand-mark" aria-hidden="true">S</span>
+          <span>Sustenta<span class="brand-accent">Local</span></span>
+        </a>
+        <p>Feito com cuidado pela nossa comunidade. <span aria-hidden="true">♥</span></p>
+        <a class="back-to-top" href="#inicio">Voltar ao topo ↑</a>
+      </div>
+    </footer>
+  </body>
+</html>
