@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta
       name="description"
-      content="Descubra atitudes simples para cuidar do meio ambiente e participe de uma comunidade mais sustentável."
+      content="Descubra atitudes simples para cuidar do meio ambiente e conheça iniciativas sustentáveis para sua comunidade."
     >
     <meta name="theme-color" content="#f4f7ef">
     <title>Sustenta Local | Pequenas atitudes, grandes mudanças</title>
@@ -25,7 +25,8 @@
         <nav class="main-nav" aria-label="Navegação principal">
           <a href="#sobre">Sobre</a>
           <a href="#dicas">Dicas</a>
-          <a class="nav-cta" href="#participar">Participe</a>
+          <a href="#orientacoes">Orientações</a>
+          <a class="nav-cta" href="#participar">Registrar visita</a>
         </nav>
       </div>
     </header>
@@ -65,12 +66,12 @@
               cuidado coletivo. Com informação e atitudes acessíveis, cada pessoa
               pode contribuir para uma comunidade mais limpa, consciente e acolhedora.
             </p>
-            <a class="text-link" href="#participar">Faça parte dessa iniciativa <span aria-hidden="true">→</span></a>
+            <a class="text-link" href="#participar">Registre sua visita <span aria-hidden="true">→</span></a>
             <p class="participant-counter">
               <strong id="participantes-count" aria-live="polite">—</strong>
-              <span>pessoas já fazem parte</span>
+              <span>visitas registradas</span>
             </p>
-            <p class="counter-feedback" id="counter-feedback" role="status">Carregando participantes…</p>
+            <p class="counter-feedback" id="counter-feedback" role="status">Carregando visitas…</p>
           </div>
         </div>
       </section>
@@ -88,7 +89,7 @@
               <span class="tip-icon icon-recycle" aria-hidden="true">↻</span>
               <p class="tip-number">01 / RESÍDUOS</p>
               <h3>Separe para reciclar</h3>
-              <p>Separe papel, plástico, vidro e metal. Descarte recicláveis limpos e secos nos pontos de coleta da sua região.</p>
+              <p>Separe papel, plástico, vidro e metal quando a coleta local aceitar esses materiais. Deixe as embalagens limpas e secas e use os pontos indicados pelo seu município.</p>
             </article>
             <article class="tip-card">
               <span class="tip-icon icon-water" aria-hidden="true">⌁</span>
@@ -106,14 +107,133 @@
         </div>
       </section>
 
+      <section class="section guidance-section" id="orientacoes" aria-labelledby="guidance-title">
+        <div class="container">
+          <div class="section-heading guidance-heading">
+            <p class="eyebrow">Informação que vira atitude</p>
+            <h2 id="guidance-title">Orientações para agir <span>com confiança.</span></h2>
+            <p>Encontre um próximo passo possível para sua rotina. Comece pequeno e adapte ao que existe no seu bairro.</p>
+          </div>
+
+          <div class="guidance-filters" role="group" aria-label="Filtrar orientações por tema">
+            <button class="guidance-filter" type="button" data-guide-filter="all" aria-pressed="true">Todas</button>
+            <button class="guidance-filter" type="button" data-guide-filter="residuos" aria-pressed="false">Recicláveis</button>
+            <button class="guidance-filter" type="button" data-guide-filter="descarte" aria-pressed="false">Descarte especial</button>
+            <button class="guidance-filter" type="button" data-guide-filter="organicos" aria-pressed="false">Orgânicos</button>
+            <button class="guidance-filter" type="button" data-guide-filter="agua" aria-pressed="false">Água e energia</button>
+            <button class="guidance-filter" type="button" data-guide-filter="consumo" aria-pressed="false">Consumo</button>
+          </div>
+          <p class="guidance-filter-status" id="guidance-filter-status" role="status" aria-live="polite">Exibindo 5 orientações.</p>
+
+          <div class="guidance-grid">
+            <article class="guidance-card" data-guide-category="residuos">
+              <p class="guidance-kicker">01 / RECICLÁVEIS</p>
+              <h3>Separe conforme a coleta local</h3>
+              <p>Nem todo material é aceito em todos os lugares. Consulte a prefeitura, a cooperativa ou a empresa de coleta do seu bairro antes de separar.</p>
+              <ul>
+                <li>Esvazie as embalagens e retire o excesso de restos de comida.</li>
+                <li>Deixe os recicláveis secos e protegidos da chuva até a coleta.</li>
+                <li>Respeite os dias e os materiais informados pelo serviço local.</li>
+              </ul>
+            </article>
+
+            <article class="guidance-card" data-guide-category="descarte">
+              <p class="guidance-kicker">02 / DESCARTE ESPECIAL</p>
+              <h3>Não jogue itens perigosos no lixo comum</h3>
+              <p>Pilhas, baterias, lâmpadas, eletrônicos, medicamentos vencidos e óleo de cozinha exigem destinação adequada.</p>
+              <ul>
+                <li>Não despeje óleo, remédios ou produtos químicos na pia ou no vaso sanitário.</li>
+                <li>Procure pontos de entrega divulgados pela prefeitura, pelo comércio ou pelo fabricante.</li>
+                <li>Confirme quais itens o ponto recebe antes de levar.</li>
+              </ul>
+            </article>
+
+            <article class="guidance-card" data-guide-category="organicos">
+              <p class="guidance-kicker">03 / ORGÂNICOS</p>
+              <h3>Evite desperdício antes de compostar</h3>
+              <p>Planejar as refeições e armazenar os alimentos corretamente ajuda a aproveitar melhor as compras.</p>
+              <ul>
+                <li>Organize a geladeira para consumir primeiro o que está perto de vencer.</li>
+                <li>Congele porções que não serão usadas a tempo.</li>
+                <li>Se fizer compostagem, siga as instruções do método escolhido e use apenas os resíduos indicados.</li>
+              </ul>
+            </article>
+
+            <article class="guidance-card" data-guide-category="agua">
+              <p class="guidance-kicker">04 / ÁGUA E ENERGIA</p>
+              <h3>Reduza desperdícios no dia a dia</h3>
+              <p>Pequenos cuidados frequentes ajudam a evitar consumo desnecessário em casa.</p>
+              <ul>
+                <li>Feche a torneira ao escovar os dentes e ao ensaboar a louça.</li>
+                <li>Avise quem pode consertar torneiras pingando e vazamentos.</li>
+                <li>Apague luzes e desligue aparelhos quando não estiver usando.</li>
+              </ul>
+            </article>
+
+            <article class="guidance-card" data-guide-category="consumo">
+              <p class="guidance-kicker">05 / CONSUMO</p>
+              <h3>Repense antes de comprar</h3>
+              <p>Escolhas de compra também evitam resíduos e podem apoiar iniciativas do próprio bairro.</p>
+              <ul>
+                <li>Faça uma lista e planeje as quantidades para reduzir compras por impulso.</li>
+                <li>Prefira itens duráveis, reparáveis e com menos embalagem quando possível.</li>
+                <li>Considere consertar, reutilizar, trocar ou doar antes de descartar.</li>
+              </ul>
+            </article>
+          </div>
+
+          <aside class="local-guidance-note">
+            <strong>Uma regra importante:</strong> dias de coleta, materiais aceitos e pontos de entrega mudam de uma cidade para outra. Confirme as orientações com a prefeitura ou o serviço de limpeza urbana local.
+          </aside>
+
+          <div class="action-plan" aria-labelledby="action-plan-title">
+            <div class="action-plan-heading">
+              <div>
+                <p class="eyebrow">Um passo de cada vez</p>
+                <h3 id="action-plan-title">Monte seu plano de ação</h3>
+              </div>
+              <button class="action-reset" type="button" data-reset-actions>Limpar seleção</button>
+            </div>
+            <p>Marque o que você pretende colocar em prática. Seu progresso fica salvo neste navegador.</p>
+            <progress class="action-progress" id="action-progress" max="4" value="0" aria-label="Progresso do plano de ação"></progress>
+            <p class="action-progress-label" id="action-progress-label" role="status" aria-live="polite">0 de 4 ações selecionadas.</p>
+            <div class="action-list">
+              <label class="action-item" for="action-separation">
+                <input id="action-separation" type="checkbox" data-action-check>
+                <span>Descobrir como funciona a coleta seletiva na minha rua.</span>
+              </label>
+              <label class="action-item" for="action-reuse">
+                <input id="action-reuse" type="checkbox" data-action-check>
+                <span>Separar um item para reutilizar, consertar ou doar.</span>
+              </label>
+              <label class="action-item" for="action-water">
+                <input id="action-water" type="checkbox" data-action-check>
+                <span>Verificar se há torneira ou vazamento precisando de reparo.</span>
+              </label>
+              <label class="action-item" for="action-food">
+                <input id="action-food" type="checkbox" data-action-check>
+                <span>Planejar as refeições para aproveitar melhor os alimentos.</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="guidance-sources">
+            <h3>Para consultar fontes oficiais</h3>
+            <a href="https://sinir.gov.br/informacoes/plano-nacional-de-residuos-solidos/" target="_blank" rel="noreferrer">Plano Nacional de Resíduos Sólidos (SINIR) <span aria-hidden="true">↗</span></a>
+            <a href="https://sinir.gov.br/informacoes/plano-nacional-de-reducao-e-reciclagem-de-residuos-organicos-urbanos-planaro/" target="_blank" rel="noreferrer">Plano para resíduos orgânicos (SINIR) <span aria-hidden="true">↗</span></a>
+            <a href="https://sinir.gov.br/sistemas/logistica-reversa/" target="_blank" rel="noreferrer">Informações sobre logística reversa (SINIR) <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </section>
+
       <section class="section participation-section" id="participar" aria-labelledby="participation-title">
         <div class="container participation-content">
           <div class="participation-copy">
-            <p class="eyebrow">Todo mundo pode fazer parte</p>
-            <h2 id="participation-title">Vamos cuidar do nosso <span>cantinho?</span></h2>
+            <p class="eyebrow">Ajude a medir o alcance</p>
+            <h2 id="participation-title">Registre sua <span>visita.</span></h2>
             <p>
-              Deixe seu nome e venha somar forças por uma comunidade mais sustentável.
-              Sua participação começa com esse pequeno gesto.
+              Se você consultou nossas orientações, registre sua visita para ajudar a
+              contabilizar o alcance deste projeto educativo.
             </p>
           </div>
 
@@ -129,18 +249,7 @@
               required
             >
 
-            <label for="email">E-mail <span>(opcional)</span></label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              autocomplete="email"
-              placeholder="voce@exemplo.com"
-              maxlength="254"
-            >
-
-            <button class="button button-primary form-button" type="submit">Quero participar <span aria-hidden="true">→</span></button>
-            <p class="form-note">Seu nome será registrado para contabilizar a participação. O e-mail opcional não será armazenado.</p>
+            <button class="button button-primary form-button" type="submit">Registrar visita <span aria-hidden="true">→</span></button>
             <p class="form-feedback" id="form-feedback" role="status" hidden></p>
           </form>
         </div>

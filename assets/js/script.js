@@ -3,7 +3,6 @@ import { supabasePublishableKey, supabaseUrl } from "./supabase-config.js";
 
 const form = document.querySelector("#form-participacao");
 const nameInput = document.querySelector("#nome");
-const emailInput = document.querySelector("#email");
 const formFeedback = document.querySelector("#form-feedback");
 const participantCount = document.querySelector("#participantes-count");
 const counterFeedback = document.querySelector("#counter-feedback");
@@ -11,7 +10,6 @@ const counterFeedback = document.querySelector("#counter-feedback");
 if (
   !(form instanceof HTMLFormElement) ||
   !(nameInput instanceof HTMLInputElement) ||
-  !(emailInput instanceof HTMLInputElement) ||
   !(formFeedback instanceof HTMLParagraphElement) ||
   !(participantCount instanceof HTMLElement) ||
   !(counterFeedback instanceof HTMLParagraphElement)
@@ -23,7 +21,7 @@ const supabase = createClient(supabaseUrl, supabasePublishableKey);
 const submitButton = form.querySelector('button[type="submit"]');
 
 if (!(submitButton instanceof HTMLButtonElement)) {
-  throw new Error("Não foi possível inicializar o botão de participação.");
+  throw new Error("Não foi possível inicializar o botão de registro de visita.");
 }
 
 const numberFormatter = new Intl.NumberFormat("pt-BR");
@@ -77,7 +75,7 @@ supabase
   });
 
 refreshParticipantCount().catch((error) => {
-  counterFeedback.textContent = "Não foi possível carregar a contagem de participantes.";
+  counterFeedback.textContent = "Não foi possível carregar a contagem de visitas.";
   console.error(error);
 });
 
@@ -89,7 +87,6 @@ form.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   nameInput.value = nameInput.value.trim();
-  emailInput.value = emailInput.value.trim();
   nameInput.setCustomValidity(nameInput.value ? "" : "Informe seu nome.");
   formFeedback.hidden = true;
 
@@ -98,7 +95,7 @@ form.addEventListener("submit", async (event) => {
   }
 
   submitButton.disabled = true;
-  formFeedback.textContent = "Registrando sua participação...";
+  formFeedback.textContent = "Registrando sua visita...";
   formFeedback.hidden = false;
 
   let error;
@@ -108,7 +105,7 @@ form.addEventListener("submit", async (event) => {
       .from("participantes")
       .insert({ nome: nameInput.value }));
   } catch (cause) {
-    console.error("Falha de conexão ao registrar participante.", cause);
+    console.error("Falha de conexão ao registrar visita.", cause);
     formFeedback.textContent = "Falha de conexão. Verifique sua internet e tente novamente.";
     submitButton.disabled = false;
     return;
@@ -117,12 +114,12 @@ form.addEventListener("submit", async (event) => {
   submitButton.disabled = false;
 
   if (error) {
-    formFeedback.textContent = "Não foi possível registrar sua participação. Tente novamente.";
-    console.error("Falha ao registrar participante.", error);
+    formFeedback.textContent = "Não foi possível registrar sua visita. Tente novamente.";
+    console.error("Falha ao registrar visita.", error);
     return;
   }
 
-  formFeedback.textContent = "Sua participação foi registrada. Obrigado por fazer parte!";
+  formFeedback.textContent = "Sua visita foi registrada. Obrigado por consultar nossas orientações!";
   form.reset();
 
   try {
@@ -131,3 +128,81 @@ form.addEventListener("submit", async (event) => {
     console.error(error);
   }
 });
+
+const guidanceFilters = document.querySelectorAll("[data-guide-filter]");
+const guidanceCards = document.querySelectorAll("[data-guide-category]");
+const guidanceFilterStatus = document.querySelector("#guidance-filter-status");
+
+guidanceFilters.forEach((filter) => {
+  filter.addEventListener("click", () => {
+    const category = filter.dataset.guideFilter;
+    let visibleCount = 0;
+
+    guidanceFilters.forEach((button) => {
+      const isActive = button === filter;
+      button.setAttribute("aria-pressed", String(isActive));
+    });
+
+    guidanceCards.forEach((card) => {
+      const isVisible = category === "all" || card.dataset.guideCategory === category;
+      card.hidden = !isVisible;
+      visibleCount += Number(isVisible);
+    });
+
+    if (guidanceFilterStatus instanceof HTMLParagraphElement) {
+      guidanceFilterStatus.textContent = `Exibindo ${visibleCount} ${visibleCount === 1 ? "orientação" : "orientações"}.`;
+    }
+  });
+});
+
+const actionCheckboxes = [...document.querySelectorAll("[data-action-check]")];
+const actionProgress = document.querySelector("#action-progress");
+const actionProgressLabel = document.querySelector("#action-progress-label");
+const resetActionsButton = document.querySelector("[data-reset-actions]");
+const actionStorageKey = "sustenta-local-action-plan-v1";
+
+if (
+  actionCheckboxes.length > 0 &&
+  actionProgress instanceof HTMLProgressElement &&
+  actionProgressLabel instanceof HTMLParagraphElement &&
+  resetActionsButton instanceof HTMLButtonElement
+) {
+  try {
+    const savedActions = JSON.parse(localStorage.getItem(actionStorageKey) || "[]");
+
+    if (Array.isArray(savedActions)) {
+      actionCheckboxes.forEach((checkbox) => {
+        checkbox.checked = savedActions.includes(checkbox.id);
+      });
+    }
+  } catch (error) {
+    console.warn("Não foi possível restaurar o plano de ação salvo.", error);
+  }
+
+  function updateActionPlan() {
+    const selectedActions = actionCheckboxes.filter((checkbox) => checkbox.checked);
+    const selectedCount = selectedActions.length;
+
+    actionProgress.value = selectedCount;
+    actionProgressLabel.textContent = `${selectedCount} de ${actionCheckboxes.length} ações selecionadas.`;
+
+    try {
+      localStorage.setItem(actionStorageKey, JSON.stringify(selectedActions.map((checkbox) => checkbox.id)));
+    } catch (error) {
+      console.warn("Não foi possível salvar o plano de ação neste navegador.", error);
+    }
+  }
+
+  actionCheckboxes.forEach((checkbox) => {
+    checkbox.addEventListener("change", updateActionPlan);
+  });
+
+  resetActionsButton.addEventListener("click", () => {
+    actionCheckboxes.forEach((checkbox) => {
+      checkbox.checked = false;
+    });
+    updateActionPlan();
+  });
+
+  updateActionPlan();
+}
